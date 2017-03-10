@@ -5,7 +5,7 @@ phina.globalize();
  */
 phina.main(function() {
   // アプリケーションを生成
-  var app = CanvasApp({
+  var app = GameApp({
     assets: ASSETS,
   });
   app.enableStats();//fpsの表示、重いので要らなければコメントアウトする
