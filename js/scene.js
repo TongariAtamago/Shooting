@@ -7,11 +7,11 @@ phina.define('MainSequence', {
     this.superInit({
       scenes:[
         //ローディング
-        {
+        /*{
           label: 'load',
           className: 'LoadingScene',
           arguments: { stageId:0 },
-        },
+        },*/
         //タイトル
         {
           label: 'title',

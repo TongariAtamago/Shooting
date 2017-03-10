@@ -9,6 +9,10 @@ phina.define('TitleScene', {
     this.superInit();
 
     //ここにメインの処理を書いていく
-    var label = Label('hello').addChildTo(this);
+    var label = Label({
+      text: 'ShootingGame(Provisional)',
+      fontFamily: 'AdventPro-Medium'
+    }).addChildTo(this);
+    label.setPosition(this.gridX.center(),this.gridY.center())
   },
 });

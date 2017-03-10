@@ -6,7 +6,7 @@ phina.globalize();
 phina.main(function() {
   // アプリケーションを生成
   var app = GameApp({
-    startLabel: 'main',// MainScene から開始
+    assets: ASSETS,
   });
   app.enableStats();//fpsの表示、重いので要らなければコメントアウトする
   app.replaceScene(MainSequence());
