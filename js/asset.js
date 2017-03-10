@@ -6,6 +6,6 @@ var ASSETS = {
   },
   font: {
     //フォント
-    'AdventPro-Medium': '/fonts/AdventPro-Medium'
+    'AdventPro-Medium': 'fonts/AdventPro-Medium.ttf',
   },
 };

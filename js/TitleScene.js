@@ -11,8 +11,10 @@ phina.define('TitleScene', {
     //ここにメインの処理を書いていく
     var label = Label({
       text: 'ShootingGame(Provisional)',
-      fontFamily: 'AdventPro-Medium'
+      fontFamily: 'AdventPro-Medium',
     }).addChildTo(this);
-    label.setPosition(this.gridX.center(),this.gridY.center())
+    label.setPosition(this.gridX.center(),this.gridY.center());
+
+    var sprite = Sprite('tomapiko_ss').addChildTo(this);
   },
 });
