@@ -7,22 +7,22 @@ phina.define('MainSequence', {
     this.superInit({
       scenes:[
         //ローディング
-        /*{
+        {
           label: 'load',
-          className: 'LoadingScene',
-          arguments: { stageId:0 },
-        },*/
+          className: 'sh.LoadingScene',
+          arguments: { assets: ASSETS, },
+        },
         //タイトル
         {
           label: 'title',
-          className: 'TitleScene',
+          className: 'sh.TitleScene',
         },
         /*
          * アーケードモード
          */
         {
           label: 'arcadeMode',
-          className: 'ArcadeModeSequence',
+          className: 'sh.ArcadeModeSequence',
           nextLabel: 'title'
         },
       ]
@@ -32,7 +32,7 @@ phina.define('MainSequence', {
 /*
  * アーケードモード
  */
-phina.define("ArcadeModeSequence", {
+phina.define("sh.ArcadeModeSequence", {
   superClass: "ManagerScene",
   init: function() {
     this.superInit({
@@ -40,26 +40,26 @@ phina.define("ArcadeModeSequence", {
         //ステージ1
         {
           label: "stage1preload",
-          className: "LoadingScene",
+          className: "sh.LoadingScene",
         },
         {
           label: "stage1",
-          className: "GameStage1",
+          className: "sh.GameStage1",
         },
         {
           label: "stage1result",
-          className: "ResultScene",
+          className: "sh.ResultScene",
           arguments: { stageId:1 },
         },
         //エンディング
         {
           label: "ending",
-          className: "EndingScene",
+          className: "sh.EndingScene",
         },
         //ゲームオーバー
         {
           label: "gameover",
-          className: "GameoverScene",
+          className: "sh.GameoverScene",
         },
       ],
     });
