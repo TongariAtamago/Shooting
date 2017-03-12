@@ -22,12 +22,12 @@ var sh = {};
 phina.main(function() {
   // アプリケーションを生成
   var app = GameApp({
-    backgroundColor: '#000011',
-    width: SC_W,
-    height: SC_H,
-    fit: true,
+    backgroundColor: '#000011',//背景色
+    width: SC_W,//幅
+    height: SC_H,//高さ
+    fit: false,//フィット
   });
-  //app.enableStats();//fpsの表示、重いので要らなければコメントアウトする
-  app.replaceScene(MainSequence());
+  //app.enableStats();//fpsの表示
+  app.replaceScene(sh.MainSequence());
   app.run();// 実行
 });

@@ -4,7 +4,7 @@ phina.define('sh.TitleScene', {
   //DisplaySceneクラスを継承
   superClass: 'DisplayScene',
 
-  //MainSceneを初期化
+  //初期化
   init: function() {
     this.superInit(SCENE_DEFAULT);
     //ラベルをグループ化
@@ -16,4 +16,10 @@ phina.define('sh.TitleScene', {
     //スペースバー押せ！
     TITLE_PRESS.addChildTo(labelGroup).setPosition(this.gridX.center(),this.gridY.center(4));
   },
+  //アップデート時の処理
+  update: function(app) {
+    var key = app.keyboard;
+    // スペースバー感知
+    if (key.getKey('space')) { this.exit() }
+  }
 });

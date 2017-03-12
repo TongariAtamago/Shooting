@@ -1,5 +1,5 @@
 //MainSequenceを定義
-phina.define('MainSequence', {
+phina.define('sh.MainSequence', {
   //ManagerSceneクラスを継承
   superClass: 'ManagerScene',
   //初期化
@@ -41,6 +41,7 @@ phina.define("sh.ArcadeModeSequence", {
         {
           label: "stage1preload",
           className: "sh.LoadingScene",
+          arguments: { assets: ASSETS_STAGE1, },
         },
         {
           label: "stage1",
