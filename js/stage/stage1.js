@@ -9,6 +9,7 @@ phina.define('sh.GameStage1', {
     this.superInit(SCENE_DEFAULT);
 
     player = PLAYER_TYPE_A.addChildTo(this);
+    var b = PLAYER_BULLET().addChildTo(this);
 
   },
 });

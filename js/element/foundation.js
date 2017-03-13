@@ -17,10 +17,8 @@ phina.define('sh.entity', {
   //DisplayElementクラスを継承
   superClass: 'DisplayElement',
   //初期化
-  init: function(x,y,circle){
+  init: function(circle){
     this.superInit()
-    this.x = x;//x座標
-    this.y = y;//y座標
     var circle = Circle(0, 0,circle);//当たり判定に使うCircle
   }
 });
