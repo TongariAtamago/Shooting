@@ -3,7 +3,7 @@ phina.globalize();
 
 
 //定数
-var SC_W = 1360;// 画面横サイズ
+var SC_W = 1024;// 画面横サイズ
 var SC_H = 640;// 画面縦サイズ
 var FPS = 80;//FPS
 var SCENE_DEFAULT = {
@@ -25,7 +25,7 @@ phina.main(function() {
     backgroundColor: '#000011',//背景色
     width: SC_W,//幅
     height: SC_H,//高さ
-    fit: false,//フィット
+    fit: true,//フィット
   });
   //app.enableStats();//fpsの表示
   app.replaceScene(sh.MainSequence());

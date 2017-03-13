@@ -4,7 +4,7 @@ phina.define('PLAYER', {
   superClass: 'sh.entity',
   //初期化
   init: function() {
-    this.superInit(SC_W/2,SC_H/2,5);
+    this.superInit(SC_W/2,SC_H/2,4);
     //TODO 当たり判定
     this.speed = null;
     this.rotationSpeed = null;
