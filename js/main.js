@@ -3,8 +3,8 @@ phina.globalize();
 
 
 //定数
-var SC_W = 1024;// 画面横サイズ
-var SC_H = 640;// 画面縦サイズ
+var SC_W = 1200;// 画面横サイズ
+var SC_H = 670;// 画面縦サイズ
 var FPS = 80;//FPS
 var SCENE_DEFAULT = {
   width: SC_W,

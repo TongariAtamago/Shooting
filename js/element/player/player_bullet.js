@@ -8,11 +8,10 @@ phina.define('PLAYER_BULLET', {
     this.setPosition(player.x,player.y)
     //TODO 当たり判定 プレイヤー側でやるかも
 
-    var circlek = CircleShape().addChildTo(this);
+    var circlek = CircleShape().addChildTo(this);//コンビニじゃないよ！
 
   },
   update: function() {
-    this.x += ((player.rotation - 30) * Math.RAD_TO_DEG).sin() * 10;
-    this.y += ((player.rotation - 30) * Math.RAD_TO_DEG).cos() * 10;
+    this.setPosition(Vector2().fromDegree(100,10));
   },
 });
