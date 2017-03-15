@@ -5,7 +5,7 @@ phina.globalize();
 //定数
 var SC_W = 1200;// 画面横サイズ
 var SC_H = 670;// 画面縦サイズ
-var FPS = 80;//FPS
+var FPS = 60;//FPS
 var SCENE_DEFAULT = {
   width: SC_W,
   height: SC_H,
@@ -23,11 +23,12 @@ phina.main(function() {
   // アプリケーションを生成
   var app = GameApp({
     backgroundColor: '#000011',//背景色
+    fps: FPS,//FPS
     width: SC_W,//幅
     height: SC_H,//高さ
     fit: true,//フィット
   });
-  //app.enableStats();//fpsの表示
+  app.enableStats();//fpsの表示
   app.replaceScene(sh.MainSequence());
   app.run();// 実行
 });
