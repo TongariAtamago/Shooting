@@ -18,7 +18,7 @@ phina.define('sh.entity', {
   superClass: 'DisplayElement',
   //初期化
   init: function(circle){
-    this.superInit()
+    this.superInit();
     var collisionCircle = Circle(0, 0,circle);//当たり判定に使うCircle
   }
 });

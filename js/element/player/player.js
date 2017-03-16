@@ -6,7 +6,7 @@ phina.define('PLAYER', {
   init: function() {
     this.superInit(4);
     //ポジション
-    this.setPosition(SC_W/2,SC_H/2)
+    this.setPosition(SC_W/2,SC_H/2);
     //TODO 当たり判定 弾側でやるかも。
     this.speed = null;//スピード
     this.rotationSpeed = null;//回転スピード

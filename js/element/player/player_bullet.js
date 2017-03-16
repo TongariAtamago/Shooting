@@ -5,7 +5,7 @@ phina.define('PLAYER_BULLET', {
   init: function(rotate) {
     this.superInit(4);
     //ポジション
-    this.setPosition(player.x,player.y)
+    this.setPosition(player.x,player.y);
     //回転
     this.rotation = rotate + player.rotation;
     //TODO 当たり判定 プレイヤー側でやるかも
@@ -20,6 +20,6 @@ phina.define('PLAYER_BULLET', {
   //アップデート処理
   update: function() {
     if (this.x <= -20 || this.x >= SC_W + 20 ||
-    this.y <= -20 || this.y >= SC_H + 20) {this.remove()}
+    this.y <= -20 || this.y >= SC_H + 20) {this.remove();}
   }
 });
