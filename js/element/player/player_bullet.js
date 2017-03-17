@@ -10,8 +10,8 @@ phina.define('PLAYER_BULLET', {
     this.rotation = rotate + player.rotation;
     //TODO 当たり判定 プレイヤー側でやるかも
     //とりあえず見た目の図形
-    var circle = CircleShape({radius: 20,}).addChildTo(this);//コンビニじゃないよ！
-    var rect = RectangleShape({width:40,height:35}).addChildTo(this);
+    var rect = RectangleShape({width:64,height:64}).addChildTo(this);
+    var circle = CircleShape({radius: 32,}).addChildTo(this);//コンビニじゃないよ！
 
     var v = Vector2().fromDegree(player.rotation - 90 + rotate, 30);
     this.physical.velocity = v;

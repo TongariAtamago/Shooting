@@ -20,6 +20,6 @@ phina.define('sh.TitleScene', {
   update: function(app) {
     var key = app.keyboard;
     // スペースバー感知
-    if (key.getKey('space')) { this.exit() }
+    if (key.getKey('space')) { this.exit();}
   }
 });
