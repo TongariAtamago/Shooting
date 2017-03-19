@@ -7,8 +7,7 @@ phina.define('sh.GameStage1', {
   //初期化
   init: function() {
     this.superInit(SCENE_DEFAULT);
-
-    player = PLAYER_TYPE_A.addChildTo(this);
-
+    
+    player = sh.playerTypeA().addChildTo(this);
   },
 });
