@@ -2,13 +2,45 @@
 phina.define('sh.player', {
   //sh.entityクラスを継承
   superClass: 'sh.entity',
+  /**
+  * 0:赤
+  * 1:緑
+  * 2:青
+  * 3:ピンク
+  */
+  type: null,
+  /*
+  * 0:ショット
+  * 1:レーザー
+  * 2:エキスパート
+  * 3:ビギナー
+  */
+  style: null,
+  //無敵
+  muteki: false,
+  //当たり判定のある場所
+  hitCircle: null,
+  //ハイパーのときのゲージ
+  hyperCircle: null,
   //初期化
-  init: function() {
+  init: function(type,style) {
     this.superInit(4);
-    this.speed = null;//スピード
-    this.rotationSpeed = null;//回転スピード
-    this.bulletAngle = null;//弾の角度
-    this.imageIndex = null;
+    this.type = type;//type
+    this.style = style;//style
+    //                      赤   緑   青  ピンク
+    this.speed         =  [6.0, 5.0, 4.5, 5.5][type];//スピード
+    this.rotationSpeed =  [2.5, 2.0, 3.0, 2.0][type];//回転スピード
+    this.bulletAngle   =  [ 60,  80,  40,  60][type];//弾の角度
+    this.bulletAngle_1 =  [ 80, 100,  60,  80][type];//hlv1 の弾角度
+    this.bulletAngle_2 =  [100, 120,  80, 100][type];//hlv2 の弾角度
+    this.bulletAngle_3 =  [120, 140,  80, 120][type];//hlv3 の弾角度
+    this.bulletAngle_4 =  [140, 160, 100, 140][type];//hlv4 の弾角度
+    this.bulletAngle_5 =  [140, 160, 100, 140][type];//hlv5 の弾角度
+    this.bulletAngle_6 =  [140, 180, 120, 160][type];//hlv6 の弾角度
+    this.bulletAngle_7 =  [160, 180, 140, 160][type];//hlv7 の弾角度
+    this.bulletAngle_8 =  [160, 200, 140, 180][type];//hlv8 の弾角度
+    this.bulletAngle_9 =  [180, 220, 160, 180][type];//hlv9 の弾角度
+    this.bulletAngle_10=  [200, 240, 180, 200][type];//hlv10の弾角度
     //ポジション
     this.setPosition(SC_W/2,SC_H/2);
     //TODO 当たり判定 弾側でやるかも。
