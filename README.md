@@ -1,3 +1,5 @@
+<img src="head.png" />
+
 ## ShootingGameつくる！
 ShootingGame をつくる！作ってる間に様々なプログラミング技術をつけたい！！
 ## 構想
