@@ -10,5 +10,5 @@ var ASSETS_STAGE1 = {
   },
   spritesheet: {
     'player_ss': 'json/player_ss.json',
-  }
+  },
 };

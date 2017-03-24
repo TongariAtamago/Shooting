@@ -22,6 +22,8 @@ phina.define('sh.player', {
   hitCircle: null,
   //ハイパーのときのゲージ
   hyperCircle: null,
+  //画像
+  image: null,
   //初期化
   init: function(type,style) {
     this.superInit(4);
@@ -53,9 +55,9 @@ phina.define('sh.player', {
     //ポジション
     this.setPosition(SC_W/2,SC_H/2);
     //画像
-    image = Sprite('player_image').addChildTo(this);
+    this.image = Sprite('player_image',64,64).addChildTo(this);
     var player_ss = FrameAnimation ('player_ss');
-    player_ss.attachTo(this);
+    player_ss.attachTo(this.image);
     player_ss.gotoAndPlay(this.animTop);
   },
   //アップデート時の処理
