@@ -7,31 +7,49 @@
   },
   "animations":{
     "p0_0":{
-      "frames":[0]
+      "frames":[0],
+      "next": "p0_0",
+      "frequency": 3
     },
     "p0_1":{
-      "frames":[1]
+      "frames":[1],
+      "next": "p0_1",
+      "frequency": 3
     },
     "p0_2":{
-      "frames":[2]
+      "frames":[2],
+      "next": "p0_2",
+      "frequency": 3
     },
     "p0_3":{
-      "frames":[3]
+      "frames":[3],
+      "next": "p0_3",
+      "frequency": 3
     },
     "p0_4":{
-      "frames":[4]
+      "frames":[4],
+      "next": "p0_4",
+      "frequency": 3
     },
     "p0_5":{
-      "frames":[5]
+      "frames":[5],
+      "next": "p0_5",
+      "frequency": 3
     },
     "p0_6":{
-      "frames":[6]
+      "frames":[6],
+      "next": "p0_6",
+      "frequency": 3
     },
     "p0_7":{
-      "frames":[7]
+      "frames":[7],
+      "next": "p0_7",
+      "frequency": 3
     },
     "p0_8":{
-      "frames":[8]
+      "frames":[8],
+      "next": "p0_8",
+      "frequency": 3
     }
   }
 }

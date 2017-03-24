@@ -10,8 +10,8 @@ var SCENE_DEFAULT = {
   width: SC_W,
   height: SC_H,
 };//シーンのデフォルト
-var GAME_TITLE = 'Shooting(仮)';//タイトル
-var GAME_VERSION = 'version Pre-Alpha 0.0';//バージョン情報
+var GAME_TITLE = 'Astro Direction 360 deg';//タイトル
+var GAME_VERSION = 'version Pre-Alpha 0.1';//バージョン情報
 
 //ネームスペース
 var sh = {};

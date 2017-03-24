@@ -8,6 +8,7 @@ phina.define('sh.Label', {
       fontFamily: 'AdventPro-Medium',
       text: app.text,//テキスト
       fill: app.fill,//フィル
+      strokeWidth: 0,
       fontSize: app.fontSize,//フォントサイズ
     });
   },
