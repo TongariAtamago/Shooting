@@ -7,9 +7,7 @@
   },
   "animations":{
     "p0_0":{
-      "frames":[0],
-      "next": "p0_0",
-      "frequency": 3
+      "frames":[0]
     },
     "p0_1":{
       "frames":[1],
