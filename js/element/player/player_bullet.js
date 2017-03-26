@@ -8,8 +8,7 @@ phina.define('sh.playerBullet', {
     //ポジション
     this.setPosition(player.x,player.y);
     //回転
-    this.rotation = rotate + player.rotation;
-    //TODO 当たり判定 プレイヤー側でやるかも
+    this.rotation = rotate;
     //画像
     var bulletImage = Sprite('player_image_bullet',64,64).addChildTo(this);
     bulletImage.frameIndex = 0;
@@ -17,6 +16,10 @@ phina.define('sh.playerBullet', {
     //移動
     var v = Vector2().fromDegree(player.rotation - 90 + rotate, 30);
     this.physical.velocity = v;
+    this.visible = false;
+    this.tweener
+    .wait(10)
+    .set({visible:true});
 
   },
   //アップデート処理
