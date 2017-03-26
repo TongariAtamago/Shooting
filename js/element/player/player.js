@@ -55,15 +55,19 @@ phina.define('sh.player', {
     //ポジション
     this.setPosition(SC_W/2,SC_H/2);
     //ライト
-    lightGrad = Canvas.createRadialGradient(0, 0, 140, 0, 0, 25);
+    lightGrad = Canvas.createRadialGradient(0, 0, 100, 0, 0, 25);
     lightGrad.addColorStop(0, 'rgba(255,255,255,0.0)');
     lightGrad.addColorStop(0.7, 'rgba(255,255,255,0.1)');
     lightGrad.addColorStop(1, 'rgba(255,255,255,0.1)');
     this.light = CircleShape({
-      radius: 140,
+      radius: 100,
       fill: lightGrad,
       strokeWidth: 0,
     }).addChildTo(this);
+    this.light.update = function(app) {
+      var s = 1.2 + Math.sin(app.frame * 0.04) * 0.06;
+      this.scale.set(s, s);
+    };
     //画像
     this.image = Sprite('player_image',64,64).addChildTo(this);
     this.spriteSheet = FrameAnimation ('player_ss');
@@ -71,13 +75,12 @@ phina.define('sh.player', {
     this.spriteSheet.nowAnim = 'top';
     this.spriteSheet.gotoAndPlay(this.animTop);
     //ヒットする点
-    this.hitCircle = CircleShape({
-      radius: 4,
-      strokeWidth: 2,
-      fill: 'lightgreen',
-      stroke: 'yellow',
-    }).addChildTo(this);
-
+    this.hitCircle = Sprite('tex0',20,20).addChildTo(this);
+    this.hitCircle.frameIndex = 5;
+    this.hitCircle.update = function(app) {
+      var s = 1.2 + Math.sin(app.frame * 0.2) * 0.15;
+      this.scale.set(s, s);
+    };
   },
   //アップデート時の処理
   update: function(app) {
