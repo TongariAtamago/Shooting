@@ -104,6 +104,51 @@
       "frames":[26,35,44],
       "next": "p2_8",
       "frequency": 2
+    },
+    "p3_0":{
+      "frames":[45,54,63],
+      "next": "p3_0",
+      "frequency": 3
+    },
+    "p3_1":{
+      "frames":[46,55,64],
+      "next": "p3_1",
+      "frequency": 3
+    },
+    "p3_2":{
+      "frames":[47,56,65],
+      "next": "p3_2",
+      "frequency": 3
+    },
+    "p3_3":{
+      "frames":[48,57,66],
+      "next": "p3_3",
+      "frequency": 3
+    },
+    "p3_4":{
+      "frames":[49,58,67],
+      "next": "p3_4",
+      "frequency": 3
+    },
+    "p3_5":{
+      "frames":[50,59,68],
+      "next": "p3_5",
+      "frequency": 3
+    },
+    "p3_6":{
+      "frames":[51,60,69],
+      "next": "p3_6",
+      "frequency": 3
+    },
+    "p3_7":{
+      "frames":[52,61,70],
+      "next": "p3_7",
+      "frequency": 3
+    },
+    "p3_8":{
+      "frames":[53,62,71],
+      "next": "p3_8",
+      "frequency": 3
     }
   }
 }

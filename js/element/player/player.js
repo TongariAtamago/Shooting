@@ -22,15 +22,11 @@ phina.define('sh.player', {
   vRotation: 0,
   //当たり判定のある場所
   hitCircle: null,
-  //ハイパーのときのゲージ
-  hyperCircle: null,
-  //画像
-  image: null,
   //スプライトシート
   spriteSheet: null,
   //初期化
   init: function(type,style) {
-    this.superInit(4);
+    this.superInit(4);//当たり判定radius
     this.type = type;//type
     this.style = style;//style
     //                      赤   緑   青  ピンク
@@ -47,21 +43,40 @@ phina.define('sh.player', {
     this.bulletAngle_8 =  [  160,  200,  140,  180][type];//hlv8 の弾角度
     this.bulletAngle_9 =  [  180,  220,  160,  180][type];//hlv9 の弾角度
     this.bulletAngle_10=  [  200,  240,  180,  200][type];//hlv10の弾角度
-    this.animTop       =  ['p0_0','p1_0','p2_0'][type];//通常
-    this.animLeft      =  ['p0_1','p1_1','p2_1'][type];//左
-    this.animRight     =  ['p0_2','p1_2','p2_2'][type];//右
-    this.animUp        =  ['p0_3','p1_3','p2_3'][type];//上
-    this.animDown      =  ['p0_4','p1_4','p2_4'][type];//下
-    this.animUpLeft    =  ['p0_5','p1_5','p2_5'][type];//左上
-    this.animUpRight   =  ['p0_6','p1_6','p2_6'][type];//右上
-    this.animDownLeft  =  ['p0_7','p1_7','p2_7'][type];//左下
-    this.animDownRight =  ['p0_8','p1_8','p2_8'][type];//右下
+    this.animTop       =  ['p0_0','p1_0','p2_0','p3_0'][type];//通常
+    this.animLeft      =  ['p0_1','p1_1','p2_1','p3_1'][type];//左
+    this.animRight     =  ['p0_2','p1_2','p2_2','p3_2'][type];//右
+    this.animUp        =  ['p0_3','p1_3','p2_3','p3_3'][type];//上
+    this.animDown      =  ['p0_4','p1_4','p2_4','p3_4'][type];//下
+    this.animUpLeft    =  ['p0_5','p1_5','p2_5','p3_5'][type];//左上
+    this.animUpRight   =  ['p0_6','p1_6','p2_6','p3_6'][type];//右上
+    this.animDownLeft  =  ['p0_7','p1_7','p2_7','p3_7'][type];//左下
+    this.animDownRight =  ['p0_8','p1_8','p2_8','p3_8'][type];//右下
     //ポジション
     this.setPosition(SC_W/2,SC_H/2);
+    //ライト
+    lightGrad = Canvas.createRadialGradient(0, 0, 140, 0, 0, 25);
+    lightGrad.addColorStop(0, 'rgba(255,255,255,0.0)');
+    lightGrad.addColorStop(0.7, 'rgba(255,255,255,0.1)');
+    lightGrad.addColorStop(1, 'rgba(255,255,255,0.1)');
+    this.light = CircleShape({
+      radius: 140,
+      fill: lightGrad,
+      strokeWidth: 0,
+    }).addChildTo(this);
     //画像
     this.image = Sprite('player_image',64,64).addChildTo(this);
     this.spriteSheet = FrameAnimation ('player_ss');
     this.spriteSheet.attachTo(this.image);
+    this.spriteSheet.nowAnim = 'top';
+    this.spriteSheet.gotoAndPlay(this.animTop);
+    //ヒットする点
+    this.hitCircle = CircleShape({
+      radius: 4,
+      strokeWidth: 2,
+      fill: 'lightgreen',
+      stroke: 'yellow',
+    }).addChildTo(this);
 
   },
   //アップデート時の処理
@@ -121,61 +136,58 @@ phina.define('sh.player', {
   },
   // アニメーション処理
   anim: function(string) {
-    var nowAnim = 'top';
-    var isNow = null;
     if(string === 'top'){
-      isNow = nowAnim === 'top';
-      nowAnim = 'top';
-      if (isNow){
+      if(this.spriteSheet.nowAnim === 'top'){} else {
         this.spriteSheet.gotoAndPlay(this.animTop);
+        this.spriteSheet.nowAnim = 'top';
       }
-    }else if(string === 'up'){
-      isNow = nowAnim === 'up';
-      nowAnim = 'up';
-      if (isNow){
+    }
+    if(string === 'up'){
+      if(this.spriteSheet.nowAnim === 'up'){} else {
         this.spriteSheet.gotoAndPlay(this.animUp);
+        this.spriteSheet.nowAnim = 'up';
       }
-    }else if(string === 'down'){
-      isNow = nowAnim === 'down';
-      nowAnim = 'down';
-      if (isNow){
+    }
+    if(string === 'down'){
+      if(this.spriteSheet.nowAnim === 'down'){} else {
         this.spriteSheet.gotoAndPlay(this.animDown);
+        this.spriteSheet.nowAnim = 'down';
       }
-    }else if(string === 'left'){
-      isNow = nowAnim === 'left';
-      nowAnim = 'left';
-      if (isNow){
+    }
+    if(string === 'left'){
+      if(this.spriteSheet.nowAnim === 'left'){} else {
         this.spriteSheet.gotoAndPlay(this.animLeft);
+        this.spriteSheet.nowAnim = 'left';
       }
-    }else if(string === 'right'){
-      isNow = nowAnim === 'right';
-      nowAnim = 'right';
-      if (isNow){
+    }
+    if(string === 'right'){
+      if(this.spriteSheet.nowAnim === 'right'){} else {
         this.spriteSheet.gotoAndPlay(this.animRight);
+        this.spriteSheet.nowAnim = 'right';
       }
-    }else if(string === 'upLeft'){
-      isNow = nowAnim === 'upLeft';
-      nowAnim = 'upLeft';
-      if (isNow){
+    }
+    if(string === 'Upleft'){
+      if(this.spriteSheet.nowAnim === 'Upleft'){} else {
         this.spriteSheet.gotoAndPlay(this.animUpLeft);
+        this.spriteSheet.nowAnim = 'Upleft';
       }
-    }else if(string === 'upRight'){
-      isNow = nowAnim === 'upRight';
-      nowAnim = 'upRight';
-      if (isNow){
+    }
+    if(string === 'upRight'){
+      if(this.spriteSheet.nowAnim === 'upRight'){} else {
         this.spriteSheet.gotoAndPlay(this.animUpRight);
+        this.spriteSheet.nowAnim = 'upRight';
       }
-    }else if(string === 'downLeft'){
-      isNow = nowAnim === 'downLeft';
-      nowAnim = 'downLeft';
-      if (isNow){
+    }
+    if(string === 'downLeft'){
+      if(this.spriteSheet.nowAnim === 'downLeft'){} else {
         this.spriteSheet.gotoAndPlay(this.animDownLeft);
+        this.spriteSheet.nowAnim = 'downLeft';
       }
-    }else if(string === 'downRight'){
-      isNow = nowAnim === 'downRight';
-      nowAnim = 'downRight';
-      if (isNow){
+    }
+    if(string === 'downRight'){
+      if(this.spriteSheet.nowAnim === 'downRight'){} else {
         this.spriteSheet.gotoAndPlay(this.animDownRight);
+        this.spriteSheet.nowAnim = 'downRight';
       }
     }
   },
