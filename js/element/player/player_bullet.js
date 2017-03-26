@@ -9,7 +9,6 @@ phina.define('sh.playerBullet', {
     this.setPosition(player.x,player.y);
     //回転
     this.rotation = rotate;
-    //TODO 当たり判定 プレイヤー側でやるかも
     //画像
     var bulletImage = Sprite('player_image_bullet',64,64).addChildTo(this);
     bulletImage.frameIndex = 0;
