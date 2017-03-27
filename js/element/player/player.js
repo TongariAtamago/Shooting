@@ -18,18 +18,18 @@ phina.define('sh.player', {
   style: null,
   //無敵
   muteki: false,
+  //ハイパー
+  hyper: false,
   //弾やレーザーのrotation
   vRotation: 0,
   //当たり判定のある場所
   hitCircle: null,
-  //スプライトシート
-  spriteSheet: null,
   //初期化
   init: function(type,style) {
     this.superInit(4);//当たり判定radius
     this.type = type;//type
     this.style = style;//style
-    //                      赤   緑   青  ピンク
+    //                        赤    緑    青   ピンク
     this.speed         =  [  6.0,  5.0,  4.5,  5.5][type];//スピード
     this.rotationSpeed =  [  2.5,  2.0,  3.0,  2.0][type];//回転スピード
     this.bulletAngle   =  [   60,   80,   40,   60][type];//弾の角度
@@ -43,15 +43,18 @@ phina.define('sh.player', {
     this.bulletAngle_8 =  [  160,  200,  140,  180][type];//hlv8 の弾角度
     this.bulletAngle_9 =  [  180,  220,  160,  180][type];//hlv9 の弾角度
     this.bulletAngle_10=  [  200,  240,  180,  200][type];//hlv10の弾角度
-    this.animTop       =  ['p0_0','p1_0','p2_0','p3_0'][type];//通常
-    this.animLeft      =  ['p0_1','p1_1','p2_1','p3_1'][type];//左
-    this.animRight     =  ['p0_2','p1_2','p2_2','p3_2'][type];//右
-    this.animUp        =  ['p0_3','p1_3','p2_3','p3_3'][type];//上
-    this.animDown      =  ['p0_4','p1_4','p2_4','p3_4'][type];//下
-    this.animUpLeft    =  ['p0_5','p1_5','p2_5','p3_5'][type];//左上
-    this.animUpRight   =  ['p0_6','p1_6','p2_6','p3_6'][type];//右上
-    this.animDownLeft  =  ['p0_7','p1_7','p2_7','p3_7'][type];//左下
-    this.animDownRight =  ['p0_8','p1_8','p2_8','p3_8'][type];//右下
+    this.animTop       =['p0_0','p1_0','p2_0','p3_0'][type];//通常
+    this.animLeft      =['p0_1','p1_1','p2_1','p3_1'][type];//左
+    this.animRight     =['p0_2','p1_2','p2_2','p3_2'][type];//右
+    this.animUp        =['p0_3','p1_3','p2_3','p3_3'][type];//上
+    this.animDown      =['p0_4','p1_4','p2_4','p3_4'][type];//下
+    this.animUpLeft    =['p0_5','p1_5','p2_5','p3_5'][type];//左上
+    this.animUpRight   =['p0_6','p1_6','p2_6','p3_6'][type];//右上
+    this.animDownLeft  =['p0_7','p1_7','p2_7','p3_7'][type];//左下
+    this.animDownRight =['p0_8','p1_8','p2_8','p3_8'][type];//右下
+    //                  ショットレーザー エキスパートビギナー
+    this.bulletStyle   =  [　  5,    3,    4,    3][style];//弾の間
+
     //ポジション
     this.setPosition(SC_W/2,SC_H/2);
     //ライト
@@ -95,9 +98,16 @@ phina.define('sh.player', {
       vSpeed = this.speed;
       vRotationSpeed = this.rotationSpeed;
       //弾の発射
-      if (app.frame % 7 === 0) {
-        (this.bulletAngle / 20 + 1).times(function(i){
-          var bullet = sh.playerBullet(-20 * this.bulletAngle / 20 / 2 + (20 * i) + this.vRotation).addChildTo(this.parent);
+      var bulletAng = this.bulletAngle / this.bulletStyle;
+      var bulletSty = null;
+      if (this.hyper) {
+        bulletSty = 4;
+      } else {
+        bulletSty = this.type;
+      }
+      if (app.frame % 8 === 0) {
+        (this.bulletAngle / bulletAng + 1).times(function(i){
+          var bullet = sh.playerBullet(- this.bulletAngle / 2 + (bulletAng * i) + this.vRotation,bulletSty).addChildTo(this.parent);
         },this);
       }
     }
