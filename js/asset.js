@@ -13,5 +13,6 @@ var ASSETS_STAGE1 = {
   spritesheet: {
     'player_ss': 'json/player_ss.json',
     'player_bullet_ss': 'json/player_bullet_ss.json',
+    'player_laser_ss': 'json/player_laser_ss.json',
   },
 };
