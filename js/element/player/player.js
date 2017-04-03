@@ -19,7 +19,9 @@ phina.define('sh.player', {
   //無敵
   muteki: false,
   //ハイパー
-  hyper: false,
+  hyper: true,
+  //ハイパーレベル 1~10
+  hyperLevel: 10,
   //弾やレーザーのrotation
   vRotation: 0,
   //当たり判定のある場所
@@ -29,20 +31,10 @@ phina.define('sh.player', {
     this.superInit(4);//当たり判定radius
     this.type = type;//type
     this.style = style;//style
+    this.bulletAngle   = null;//弾角度　updateで変えてる
     //                        赤    緑    青   ピンク
     this.speed         =  [  6.0,  5.0,  4.5,  5.5][type];//スピード
     this.rotationSpeed =  [  2.5,  2.0,  3.0,  2.0][type];//回転スピード
-    this.bulletAngle   =  [   60,   80,   40,   60][type];//弾の角度
-    this.bulletAngle_1 =  [   80,  100,   60,   80][type];//hlv1 の弾角度
-    this.bulletAngle_2 =  [  100,  120,   80,  100][type];//hlv2 の弾角度
-    this.bulletAngle_3 =  [  120,  140,   80,  120][type];//hlv3 の弾角度
-    this.bulletAngle_4 =  [  140,  160,  100,  140][type];//hlv4 の弾角度
-    this.bulletAngle_5 =  [  140,  160,  100,  140][type];//hlv5 の弾角度
-    this.bulletAngle_6 =  [  140,  180,  120,  160][type];//hlv6 の弾角度
-    this.bulletAngle_7 =  [  160,  180,  140,  160][type];//hlv7 の弾角度
-    this.bulletAngle_8 =  [  160,  200,  140,  180][type];//hlv8 の弾角度
-    this.bulletAngle_9 =  [  180,  220,  160,  180][type];//hlv9 の弾角度
-    this.bulletAngle_10=  [  200,  240,  180,  200][type];//hlv10の弾角度
     this.animTop       =['p0_0','p1_0','p2_0','p3_0'][type];//通常
     this.animLeft      =['p0_1','p1_1','p2_1','p3_1'][type];//左
     this.animRight     =['p0_2','p1_2','p2_2','p3_2'][type];//右
@@ -52,13 +44,13 @@ phina.define('sh.player', {
     this.animUpRight   =['p0_6','p1_6','p2_6','p3_6'][type];//右上
     this.animDownLeft  =['p0_7','p1_7','p2_7','p3_7'][type];//左下
     this.animDownRight =['p0_8','p1_8','p2_8','p3_8'][type];//右下
-    //                  ショットレーザー エキスパートビギナー
-    this.bulletStyle   =  [　  5,    3,    4,    3][style];//弾の間
+    //                ショット/レーザー/エキスパート/ビギナー
+    this.bulletStyle   =  [　 10,   20,    20,   10][style];//弾の間の角
 
     //ポジション
     this.setPosition(SC_W/2,SC_H/2);
     //ライト
-    lightGrad = Canvas.createRadialGradient(0, 0, 100, 0, 0, 25);
+    var lightGrad = Canvas.createRadialGradient(0, 0, 100, 0, 0, 25);
     lightGrad.addColorStop(0, 'rgba(255,255,255,0.0)');
     lightGrad.addColorStop(0.7, 'rgba(255,255,255,0.1)');
     lightGrad.addColorStop(1, 'rgba(255,255,255,0.1)');
@@ -88,26 +80,42 @@ phina.define('sh.player', {
   //アップデート時の処理
   update: function(app) {
     var key = app.keyboard;//key取得
-    var vSpeed = null;
-    var vRotationSpeed = null;
+    var vSpeed = null;//実質スピード
+    var vRotationSpeed = null;//実質回転スピード
+    if (this.hyper){//         赤    緑    青 ピンク
+      this.bulletAngle = [[   60,   80,   40,   60][this.type],//基本弾角度
+      /*hlv1 の弾角度*/    [   80,  100,   60,   80][this.type],
+      /*hlv2 の弾角度*/    [  100,  120,   80,  100][this.type],
+      /*hlv3 の弾角度*/    [  120,  140,   80,  120][this.type],
+      /*hlv4 の弾角度*/    [  140,  160,  100,  140][this.type],
+      /*hlv5 の弾角度*/    [  140,  160,  100,  140][this.type],
+      /*hlv6 の弾角度*/    [  140,  160,  100,  140][this.type],
+      /*hlv7 の弾角度*/    [  160,  180,  140,  160][this.type],
+      /*hlv8 の弾角度*/    [  160,  200,  140,  180][this.type],
+      /*hlv9 の弾角度*/    [  180,  220,  160,  180][this.type],
+      /*hlv10の弾角度*/    [  200,  240,  180,  200][this.type]][this.hyperLevel];
+    }else{
+      this.bulletAngle =  [   60,   80,   40,   60][this.type];//基本弾角度
+    }
+
     //Cキー
-    if (key.getKey('C')) {
+    if (key.getKey('c')) {
       vSpeed = this.speed / 4;
       vRotationSpeed = this.rotationSpeed / 4;
     } else {
       vSpeed = this.speed;
       vRotationSpeed = this.rotationSpeed;
       //弾の発射
-      var bulletAng = this.bulletAngle / this.bulletStyle;
       var bulletSty = null;
+      var bulletAng = null;
       if (this.hyper) {
         bulletSty = 4;
       } else {
         bulletSty = this.type;
       }
       if (app.frame % 8 === 0) {
-        (this.bulletAngle / bulletAng + 1).times(function(i){
-          var bullet = sh.playerBullet(- this.bulletAngle / 2 + (bulletAng * i) + this.vRotation,bulletSty).addChildTo(this.parent);
+        (this.bulletAngle / this.bulletStyle + 1).times(function(i){
+          var bullet = sh.playerBullet(- this.bulletAngle / 2 + (this.bulletStyle * i) + this.vRotation,bulletSty).addChildTo(this.parent);
         },this);
       }
     }
