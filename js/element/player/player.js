@@ -19,9 +19,9 @@ phina.define('sh.player', {
   //無敵
   muteki: false,
   //ハイパー
-  hyper: true,
+  hyper: false,
   //ハイパーレベル 1~10
-  hyperLevel: 10,
+  hyperLevel: 0,
   //弾やレーザーのrotation
   vRotation: 0,
   //当たり判定のある場所
