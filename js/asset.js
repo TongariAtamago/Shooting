@@ -7,6 +7,7 @@ var ASSETS_STAGE1 = {
   image: {
     'player_image': 'assets/fighters.png',
     'player_image_bullet': 'assets/shotbullet.png',
+    'player_image_laser': 'assets/laser.png',
     'tex0': 'assets/tex0.png',
   },
   spritesheet: {
