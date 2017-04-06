@@ -14,17 +14,8 @@ phina.define('sh.playerBullet', {
     this.spriteSheet = FrameAnimation ('player_bullet_ss');
     this.spriteSheet.attachTo(this.image);
     if (player.hyper){
+      this.setScale(1 + player.hyperLevel * 0.15);
       this.spriteSheet.gotoAndPlay('pb_hyper');
-      //ライト
-      var lightGrad = Canvas.createRadialGradient(0, 0, 100, 0, 0, 25);
-      lightGrad.addColorStop(0, 'rgba(255,255,255,0.0)');
-      lightGrad.addColorStop(0.7, 'rgba(255,255,255,0.1)');
-      lightGrad.addColorStop(1, 'rgba(255,255,255,0.1)');
-      this.light = CircleShape({
-        radius: 100,
-        fill: lightGrad,
-        strokeWidth: 0,
-      }).addChildTo(this);
     } else {
       this.spriteSheet.gotoAndPlay(['pb_typeA','pb_typeB','pb_typeC','pb_typeD'][type]);
     }
