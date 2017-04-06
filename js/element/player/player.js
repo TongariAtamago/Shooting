@@ -19,9 +19,9 @@ phina.define('sh.player', {
   //無敵
   muteki: false,
   //ハイパー
-  hyper: false,
+  hyper: true,
   //ハイパーレベル 1~10
-  hyperLevel: 0,
+  hyperLevel: 10,
   //弾やレーザーのrotation
   vRotation: 0,
   //当たり判定のある場所
@@ -83,19 +83,19 @@ phina.define('sh.player', {
     var vSpeed = null;//実質スピード
     var vRotationSpeed = null;//実質回転スピード
     if (this.hyper){//         赤    緑    青 ピンク
-      this.bulletAngle = [[   60,   80,   40,   60][this.type],//基本弾角度
-      /*hlv1 の弾角度*/    [   80,  100,   60,   80][this.type],
-      /*hlv2 の弾角度*/    [  100,  120,   80,  100][this.type],
-      /*hlv3 の弾角度*/    [  120,  140,   80,  120][this.type],
-      /*hlv4 の弾角度*/    [  140,  160,  100,  140][this.type],
-      /*hlv5 の弾角度*/    [  140,  160,  100,  140][this.type],
-      /*hlv6 の弾角度*/    [  140,  160,  100,  140][this.type],
-      /*hlv7 の弾角度*/    [  160,  180,  140,  160][this.type],
-      /*hlv8 の弾角度*/    [  160,  200,  140,  180][this.type],
-      /*hlv9 の弾角度*/    [  180,  220,  160,  180][this.type],
-      /*hlv10の弾角度*/    [  200,  240,  180,  200][this.type]][this.hyperLevel];
+      this.bulletAngle = [[   40,   80,   60,   60][this.type],//基本弾角度
+      /*hlv1 の弾角度*/    [   60,  100,   80,   80][this.type],
+      /*hlv2 の弾角度*/    [   80,  120,  100,  100][this.type],
+      /*hlv3 の弾角度*/    [   80,  140,  120,  120][this.type],
+      /*hlv4 の弾角度*/    [  100,  160,  140,  140][this.type],
+      /*hlv5 の弾角度*/    [  100,  160,  140,  140][this.type],
+      /*hlv6 の弾角度*/    [  100,  160,  140,  140][this.type],
+      /*hlv7 の弾角度*/    [  140,  180,  160,  160][this.type],
+      /*hlv8 の弾角度*/    [  140,  200,  160,  180][this.type],
+      /*hlv9 の弾角度*/    [  160,  220,  180,  180][this.type],
+      /*hlv10の弾角度*/    [  180,  240,  200,  200][this.type]][this.hyperLevel];
     }else{
-      this.bulletAngle =  [   60,   80,   40,   60][this.type];//基本弾角度
+      this.bulletAngle =  [   40,   80,   60,   60][this.type];//基本弾角度
     }
 
     //Cキー
