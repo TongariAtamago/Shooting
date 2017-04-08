@@ -1,0 +1,48 @@
+/*							Parts Assembler
+                                  Version 2.04.080709(:
+Parts: 
+	EG\EG11.suf
+	F1\F103.suf
+	JT\JT09.suf
+	SD\SD08.suf
+	W1\W113.suf
+Light: (   32   32  -89 ) ( 1.00 1.00 1.00)
+Info:
+	DisplayOffset: (   0.000   0.000   0.000 )
+	DisplayScale: 0.125000000000
+	MeshFlag: 1
+	MeshSpacing: 200
+	ShowStatus: 1
+	ShowAttr: 1
+	GridFlag: 1
+	GridSpacing: 50
+	RotSpacing: 10
+	SelectedOnly: 0
+	DispRelative: 0
+Palette:
+	0: atr noname { col ( 1.000 ) amb ( 0.200 ) dif ( 0.800 ) spc ( 0.700 1.000 0.000 ) }
+*/
+fram
+{
+	light pal( rgb ( 1.00 1.00 1.00 ) -68  15 -70 )
+	{	mov ( 1477.8 -2353.07 1088.94 ) eye deg( 45 ) }
+	{	mov ( 0 0 0 ) target }
+	{	mov ( 0 0 0 ) rotz ( 0 ) roty ( 0 ) rotx ( 0 )
+		scal ( 1 1 1 ) obj F103 /* "F1\F103.suf" atr "noname" */
+	}
+	{	mov ( 0 0 50 ) rotz ( 0 ) roty ( 0 ) rotx ( 0 )
+		scal ( 1 1 1 ) obj W113 /* "W1\W113.suf" atr "noname" */
+	}
+	{	mov ( 135 -550 0 ) rotz ( 0 ) roty ( 0 ) rotx ( 0 )
+		scal ( 0.8 1 1 ) obj SD08 /* "SD\SD08.suf" atr "noname" */
+	}
+	{	mov ( 135 550 0 ) rotz ( 0 ) roty ( 0 ) rotx ( 0 )
+		scal ( 0.8 -1 1 ) obj SD08 /* "SD\SD08.suf" atr "noname" */
+	}
+	{	mov ( -100 0 100 ) rotz ( 0 ) roty ( 0 ) rotx ( 0 )
+		scal ( 1 1 1 ) obj EG11 /* "EG\EG11.suf" atr "noname" */
+	}
+	{	mov ( -150 0 200 ) rotz ( 0 ) roty ( 0 ) rotx ( 0 )
+		scal ( 1 1 1 ) obj JT09 /* "JT\JT09.suf" atr "noname" */
+	}
+}
