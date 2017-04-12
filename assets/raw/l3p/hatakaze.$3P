@@ -1,0 +1,118 @@
+/*							Parts Assembler
+                                  Version 2.04.080709(:
+Parts: 
+	BR\BR13.suf
+	G1\G104.suf
+	G1\G109.suf
+	G1\G115.suf
+	G2\G209.suf
+	G2\G210.suf
+	S1\S112.suf
+	S2\S202.suf
+	S2\S206.suf
+	S2\S209.suf
+	S2\S212.suf
+	S2\S214.suf
+	mecha\tire\CRAWLER.suf
+Light: (   32   32  -89 ) ( 1.00 1.00 1.00)
+Info:
+	DisplayOffset: (  47.906 -30.936 -43.222 )
+	DisplayScale: 0.088388347648
+	MeshFlag: 1
+	MeshSpacing: 200
+	ShowStatus: 1
+	ShowAttr: 1
+	GridFlag: 1
+	GridSpacing: 50
+	RotSpacing: 10
+	SelectedOnly: 0
+	DispRelative: 0
+Palette:
+	0: atr "#01" { col ( rgb ( 0.470 0.210 0.160 ) ) amb ( 0.200 ) dif ( 0.800 ) spc ( 0.700 1.000 0.000 ) }
+	1: atr "#02" { col ( rgb ( 0.400 0.400 0.450 ) ) amb ( 0.200 ) dif ( 0.800 ) spc ( 0.700 1.000 0.000 ) }
+	2: atr noname { col ( rgb ( 1.000 0.200 0.050 ) ) amb ( 0.200 ) dif ( 0.800 ) ref ( 0.300 ) spc ( 0.900 1.000 0.650 ) }
+*/
+fram
+{
+	light pal( rgb ( 1.00 1.00 1.00 ) -70  -9 -70 )
+	{	mov ( 2052.41 -1539.31 1539.31 ) eye deg( 45 ) }
+	{	mov ( 0 0 0 ) target }
+	{	mov ( 0 0 0 ) rotz ( 180 ) roty ( 0 ) rotx ( 0 )
+		scal ( 1 1 1 ) obj S212 /* "S2\S212.suf" atr "noname" */
+	}
+	{	mov ( 0 420 0 ) rotz ( 180 ) roty ( 0 ) rotx ( 0 )
+		scal ( 1.4 1.4 1.4 ) obj CRAWLER /* "mecha\tire\CRAWLER.suf" atr "#01" */
+	}
+	{	mov ( 0 -420 0 ) rotz ( 180 ) roty ( 0 ) rotx ( 0 )
+		scal ( 1.4 -1.4 1.4 ) obj CRAWLER /* "mecha\tire\CRAWLER.suf" atr "#01" */
+	}
+	{	mov ( 450 0 309 ) rotz ( 180 ) roty ( 0 ) rotx ( 0 )
+		scal ( 0.6 0.6 1 ) obj S206 /* "S2\S206.suf" atr "#02" */
+	}
+	{	mov ( 0 0 250 ) rotz ( 180 ) roty ( 0 ) rotx ( 0 )
+		scal ( 1 1 1 ) obj S202 /* "S2\S202.suf" atr "#02" */
+	}
+	{	mov ( -150 250 400 ) rotz ( 180 ) roty ( 0 ) rotx ( 0 )
+		scal ( 0.6 1 0.6 ) obj S209 /* "S2\S209.suf" atr "noname" */
+	}
+	{	mov ( -150 -250 400 ) rotz ( 180 ) roty ( 0 ) rotx ( 0 )
+		scal ( 0.6 -1 0.6 ) obj S209 /* "S2\S209.suf" atr "noname" */
+	}
+	{	mov ( -250 0 400 ) rotz ( 180 ) roty ( 0 ) rotx ( 0 )
+		scal ( 1 1 1 ) obj S214 /* "S2\S214.suf" atr "noname" */
+	}
+	{	mov ( -450 0 154.5 ) rotz ( 180 ) roty ( 0 ) rotx ( 0 )
+		scal ( 1 0.6 1 ) obj S112 /* "S1\S112.suf" atr "#02" */
+	}
+	{	mov ( -300 0 600 ) rotz ( 180 ) roty ( 0 ) rotx ( 0 )
+		scal ( 1 1 1 ) obj G209 /* "G2\G209.suf" atr "#02" */
+	}
+	{	mov ( 0 300 550 ) rotz ( 180 ) roty ( 0 ) rotx ( 0 )
+		scal ( 1 1 1 ) obj G210 /* "G2\G210.suf" atr "#02" */
+	}
+	{	mov ( 0 -300 550 ) rotz ( 180 ) roty ( 0 ) rotx ( 0 )
+		scal ( 1 -1 1 ) obj G210 /* "G2\G210.suf" atr "#02" */
+	}
+	{	mov ( -50 -431 551 ) rotz ( -90 ) roty ( 0 ) rotx ( -90 )
+		scal ( 0.5 0.6 0.6 ) obj G115 /* "G1\G115.suf" atr "noname" */
+	}
+	{	mov ( 150 -431 551 ) rotz ( -90 ) roty ( 0 ) rotx ( -90 )
+		scal ( 0.5 0.6 0.6 ) obj G115 /* "G1\G115.suf" atr "noname" */
+	}
+	{	mov ( -250 -431 551 ) rotz ( -90 ) roty ( 0 ) rotx ( -90 )
+		scal ( 0.5 0.6 0.6 ) obj G115 /* "G1\G115.suf" atr "noname" */
+	}
+	{	mov ( -450 -431 551 ) rotz ( -90 ) roty ( 0 ) rotx ( -90 )
+		scal ( 0.5 0.6 0.6 ) obj G115 /* "G1\G115.suf" atr "noname" */
+	}
+	{	mov ( 350 -431 551 ) rotz ( -90 ) roty ( 0 ) rotx ( -90 )
+		scal ( 0.5 0.6 0.6 ) obj G115 /* "G1\G115.suf" atr "noname" */
+	}
+	{	mov ( -50 431 551 ) rotz ( 90 ) roty ( 0 ) rotx ( 90 )
+		scal ( 0.5 -0.6 0.6 ) obj G115 /* "G1\G115.suf" atr "noname" */
+	}
+	{	mov ( 150 431 551 ) rotz ( 90 ) roty ( 0 ) rotx ( 90 )
+		scal ( 0.5 -0.6 0.6 ) obj G115 /* "G1\G115.suf" atr "noname" */
+	}
+	{	mov ( -250 431 551 ) rotz ( 90 ) roty ( 0 ) rotx ( 90 )
+		scal ( 0.5 -0.6 0.6 ) obj G115 /* "G1\G115.suf" atr "noname" */
+	}
+	{	mov ( -450 431 551 ) rotz ( 90 ) roty ( 0 ) rotx ( 90 )
+		scal ( 0.5 -0.6 0.6 ) obj G115 /* "G1\G115.suf" atr "noname" */
+	}
+	{	mov ( 350 431 551 ) rotz ( 90 ) roty ( 0 ) rotx ( 90 )
+		scal ( 0.5 -0.6 0.6 ) obj G115 /* "G1\G115.suf" atr "noname" */
+	}
+	{	mov ( 550 0 200 ) rotz ( 180 ) roty ( 0 ) rotx ( -180 )
+		scal ( 1 0.7 0.6 ) obj BR13 /* "BR\BR13.suf" atr "noname" */
+	}
+	{	mov ( -350 0 700 ) rotz ( 0 ) roty ( 0 ) rotx ( 0 )
+		scal ( 1 1 1 ) obj G104 /* "G1\G104.suf" atr "noname" */
+	}
+	{	mov ( -350 0 750 ) rotz ( 0 ) roty ( 0 ) rotx ( 0 )
+		scal ( 1 0.7 1 ) obj G104 /* "G1\G104.suf" atr "noname" */
+	}
+	{	mov ( -150 0 600 ) rotz ( 0 ) roty ( 0 ) rotx ( 0 )
+		scal ( 1 1 1 ) obj G109 /* "G1\G109.suf" atr "#02" */
+	}
+}

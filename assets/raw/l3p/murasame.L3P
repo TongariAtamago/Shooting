@@ -1,0 +1,69 @@
+/*							Parts Assembler
+                                  Version 2.04.080709(:
+Parts: 
+	F2\F209.suf
+	G1\G107.suf
+	G1\G109.suf
+	SD\SD07.suf
+	W1\W107.suf
+Light: (   32   32  -89 ) ( 1.00 1.00 1.00)
+Info:
+	DisplayOffset: (  91.000   0.000   0.000 )
+	DisplayScale: 0.176776695297
+	MeshFlag: 1
+	MeshSpacing: 200
+	ShowStatus: 1
+	ShowAttr: 1
+	GridFlag: 1
+	GridSpacing: 50
+	RotSpacing: 10
+	SelectedOnly: 0
+	DispRelative: 0
+Palette:
+	0: atr noname { col ( 1.000 ) amb ( 0.200 ) dif ( 0.800 ) spc ( 0.700 1.000 0.000 ) }
+*/
+fram
+{
+	light pal( rgb ( 1.00 1.00 1.00 ) -70  -9 -70 )
+	{	mov ( 2898.15 -2213.39 3103.58 ) eye deg( 45 ) }
+	{	mov ( 0 0 0 ) target }
+	{	mov ( -622 1070 62 ) rotz ( -90 ) roty ( 0 ) rotx ( -80 )
+		scal ( 1 1 1 ) obj F209 /* "F2\F209.suf" atr "noname" */
+	}
+	{	mov ( 678 1070 62 ) rotz ( -90 ) roty ( 0 ) rotx ( -80 )
+		scal ( 1 1 1 ) obj F209 /* "F2\F209.suf" atr "noname" */
+	}
+	{	mov ( 670 0 31 ) rotz ( 0 ) roty ( 0 ) rotx ( 0 )
+		scal ( 1 1 1 ) obj SD07 /* "SD\SD07.suf" atr "noname" */
+	}
+	{	mov ( 670 0 31 ) rotz ( 0 ) roty ( 0 ) rotx ( 0 )
+		scal ( 1 -1 1 ) obj SD07 /* "SD\SD07.suf" atr "noname" */
+	}
+	{	mov ( -670 0 31 ) rotz ( 0 ) roty ( 0 ) rotx ( 0 )
+		scal ( -1 1 1 ) obj SD07 /* "SD\SD07.suf" atr "noname" */
+	}
+	{	mov ( -670 0 31 ) rotz ( 0 ) roty ( 0 ) rotx ( 0 )
+		scal ( -1 -1 1 ) obj SD07 /* "SD\SD07.suf" atr "noname" */
+	}
+	{	mov ( -622 -1070 62 ) rotz ( 90 ) roty ( 0 ) rotx ( 80 )
+		scal ( 1 -1 1 ) obj F209 /* "F2\F209.suf" atr "noname" */
+	}
+	{	mov ( 678 -1070 62 ) rotz ( 90 ) roty ( 0 ) rotx ( 80 )
+		scal ( 1 -1 1 ) obj F209 /* "F2\F209.suf" atr "noname" */
+	}
+	{	mov ( 20 0 331 ) rotz ( 0 ) roty ( 0 ) rotx ( 0 )
+		scal ( 1 1 1 ) obj G107 /* "G1\G107.suf" atr "noname" */
+	}
+	{	mov ( -230 -350 131 ) rotz ( 0 ) roty ( 0 ) rotx ( 30 )
+		scal ( 1 1 1 ) obj G109 /* "G1\G109.suf" atr "noname" */
+	}
+	{	mov ( -230 350 131 ) rotz ( 0 ) roty ( 0 ) rotx ( -30 )
+		scal ( 1 -1 1 ) obj G109 /* "G1\G109.suf" atr "noname" */
+	}
+	{	mov ( -730 -200 231 ) rotz ( -10 ) roty ( 0 ) rotx ( -30 )
+		scal ( 1 1 1 ) obj W107 /* "W1\W107.suf" atr "noname" */
+	}
+	{	mov ( -730 200 231 ) rotz ( 10 ) roty ( 0 ) rotx ( 30 )
+		scal ( 1 -1 1 ) obj W107 /* "W1\W107.suf" atr "noname" */
+	}
+}
