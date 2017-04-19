@@ -1,0 +1,102 @@
+/*							Parts Assembler
+                                  Version 2.04.080709(:
+Parts: 
+	CP\CP10.suf
+	EG\EG12.suf
+	G1\G107.suf
+	G1\G111.suf
+	JT\JT02.suf
+	JT\JT10.suf
+	S2\S210.suf
+	S2\S213.suf
+	SL\SL06.suf
+	SL\SL10.suf
+	TK\TK01.suf
+	TK\TK12.suf
+	TK\TK15.suf
+	mecha\carracing\RLYLT.suf
+Light: (   32   32  -89 ) ( 1.00 1.00 1.00)
+Info:
+	DisplayOffset: ( -59.892   0.000 -91.196 )
+	DisplayScale: 0.250000000000
+	MeshFlag: 1
+	MeshSpacing: 200
+	ShowStatus: 1
+	ShowAttr: 1
+	GridFlag: 1
+	GridSpacing: 50
+	RotSpacing: 10
+	SelectedOnly: 0
+	DispRelative: 0
+Palette:
+	0: atr "#01" { col ( rgb ( 0.580 0.130 0.160 ) ) amb ( 0.200 ) dif ( 0.800 ) spc ( 0.700 1.000 0.000 ) }
+	1: atr "#02" { col ( rgb ( 0.260 0.230 0.480 ) ) amb ( 0.200 ) dif ( 0.800 ) spc ( 0.700 1.000 0.000 ) }
+	2: atr "#03" { col ( rgb ( 0.470 0.210 0.160 ) ) amb ( 0.200 ) dif ( 0.800 ) spc ( 0.700 1.000 0.000 ) }
+	3: atr noname { col ( rgb ( 1.000 0.200 0.050 ) ) amb ( 0.200 ) dif ( 0.800 ) ref ( 0.300 ) spc ( 0.900 1.000 0.650 ) }
+*/
+fram
+{
+	light pal( rgb ( 1.00 1.00 1.00 ) -11 -69 -70 )
+	{	mov ( 1981 1419.84 535.87 ) eye deg( 45 ) }
+	{	mov ( 0 0 0 ) target }
+	{	mov ( -400 0 -200 ) rotz ( 0 ) roty ( 0 ) rotx ( 0 )
+		scal ( 1 1 1 ) obj TK15 /* "TK\TK15.suf" atr "#03" */
+	}
+	{	mov ( 600 0 -200 ) rotz ( 0 ) roty ( 0 ) rotx ( 0 )
+		scal ( -1 1 1 ) obj TK15 /* "TK\TK15.suf" atr "#03" */
+	}
+	{	mov ( 0 0 -50 ) rotz ( 0 ) roty ( 0 ) rotx ( 0 )
+		scal ( 1 0.5 1 ) obj TK01 /* "TK\TK01.suf" atr "noname" */
+	}
+	{	mov ( 0 -250 200 ) rotz ( 0 ) roty ( 0 ) rotx ( 90 )
+		scal ( 0.7 1 1 ) obj TK12 /* "TK\TK12.suf" atr "noname" */
+	}
+	{	mov ( 0 250 200 ) rotz ( 0 ) roty ( 0 ) rotx ( -90 )
+		scal ( 0.7 -1 1 ) obj TK12 /* "TK\TK12.suf" atr "noname" */
+	}
+	{	mov ( 0 0 300 ) rotz ( 0 ) roty ( 0 ) rotx ( 0 )
+		scal ( 1 0.2 1 ) obj S213 /* "S2\S213.suf" atr "noname" */
+	}
+	{	mov ( 0 0 400 ) rotz ( 0 ) roty ( 0 ) rotx ( 0 )
+		scal ( 1 1 0.8 ) obj S210 /* "S2\S210.suf" atr "noname" */
+	}
+	{	mov ( 600 0 200 ) rotz ( 0 ) roty ( 0 ) rotx ( 0 )
+		scal ( 1 1 1 ) obj CP10 /* "CP\CP10.suf" atr "noname" */
+	}
+	{	mov ( -550 0 450 ) rotz ( 0 ) roty ( 0 ) rotx ( 0 )
+		scal ( 1 1 1 ) obj G111 /* "G1\G111.suf" atr "noname" */
+	}
+	{	mov ( 0 0 350 ) rotz ( 0 ) roty ( 0 ) rotx ( 0 )
+		scal ( 1 1 1 ) obj G107 /* "G1\G107.suf" atr "#01" */
+	}
+	{	mov ( -650 -250 450 ) rotz ( 0 ) roty ( 0 ) rotx ( 0 )
+		scal ( 0.3 0.5 0.3 ) obj SL06 /* "SL\SL06.suf" atr "#02" */
+	}
+	{	mov ( -650 250 450 ) rotz ( 0 ) roty ( 0 ) rotx ( 0 )
+		scal ( 0.3 -0.5 0.3 ) obj SL06 /* "SL\SL06.suf" atr "#02" */
+	}
+	{	mov ( -650 0 450 ) rotz ( 0 ) roty ( 0 ) rotx ( 0 )
+		scal ( 1.8 1.2 1.8 ) obj JT02 /* "JT\JT02.suf" atr "#02" */
+	}
+	{	mov ( -850 -150 450 ) rotz ( 0 ) roty ( 0 ) rotx ( 90 )
+		scal ( 0.5 0.5 0.5 ) obj JT10 /* "JT\JT10.suf" atr "noname" */
+	}
+	{	mov ( -850 150 450 ) rotz ( 0 ) roty ( 0 ) rotx ( -90 )
+		scal ( 0.5 -0.5 0.5 ) obj JT10 /* "JT\JT10.suf" atr "noname" */
+	}
+	{	mov ( 0 0 550 ) rotz ( 0 ) roty ( 0 ) rotx ( 0 )
+		scal ( 0.5 1 0.6 ) obj SL10 /* "SL\SL10.suf" atr "#01" */
+	}
+	{	mov ( 500 -250 250 ) rotz ( 0 ) roty ( 0 ) rotx ( 90 )
+		scal ( 0.4 0.4 0.5 ) obj EG12 /* "EG\EG12.suf" atr "#01" */
+	}
+	{	mov ( 500 250 250 ) rotz ( 0 ) roty ( 0 ) rotx ( -90 )
+		scal ( 0.4 -0.4 0.5 ) obj EG12 /* "EG\EG12.suf" atr "#01" */
+	}
+	{	mov ( 900 -150 150 ) rotz ( 0 ) roty ( 0 ) rotx ( 0 )
+		scal ( 1 1.1 1.2 ) obj RLYLT /* "mecha\carracing\RLYLT.suf" atr "noname" */
+	}
+	{	mov ( 900 150 150 ) rotz ( 0 ) roty ( 0 ) rotx ( 0 )
+		scal ( 1 -1.1 1.2 ) obj RLYLT /* "mecha\carracing\RLYLT.suf" atr "noname" */
+	}
+}

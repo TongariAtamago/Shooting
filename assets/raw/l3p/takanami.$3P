@@ -1,0 +1,107 @@
+/*							Parts Assembler
+                                  Version 2.04.080709(:
+Parts: 
+	EG\EG05.suf
+	G1\G101.suf
+	G1\G106.suf
+	G1\G108.suf
+	G1\G109.suf
+	G1\G111.suf
+	SD\SD04.suf
+	SD\SD09.suf
+	SD\SD10.suf
+	SD\SD14.suf
+	W1\W113.suf
+Light: (   32   32  -89 ) ( 1.00 1.00 1.00)
+Info:
+	DisplayOffset: ( -32.350 -49.144 -13.965 )
+	DisplayScale: 0.176776695297
+	MeshFlag: 1
+	MeshSpacing: 200
+	ShowStatus: 1
+	ShowAttr: 1
+	GridFlag: 1
+	GridSpacing: 50
+	RotSpacing: 10
+	SelectedOnly: 0
+	DispRelative: 0
+Palette:
+	0: atr "#01" { col ( rgb ( 0.540 0.260 0.460 ) ) amb ( 0.200 ) dif ( 0.800 ) ref ( 0.300 ) spc ( 0.900 1.000 0.650 ) }
+	1: atr "#02" { col ( rgb ( 0.490 0.160 0.550 ) ) amb ( 0.200 ) dif ( 0.800 ) spc ( 0.700 1.000 0.000 ) }
+	2: atr noname { col ( 1.000 ) amb ( 0.200 ) dif ( 0.800 ) spc ( 0.700 1.000 0.000 ) }
+*/
+fram
+{
+	light pal( rgb ( 1.00 1.00 1.00 ) -66 -23 -70 )
+	{	mov ( 1531.4 -726.176 994.363 ) eye deg( 45 ) }
+	{	mov ( 0 0 0 ) target }
+	{	mov ( 0 0 0 ) rotz ( 0 ) roty ( 0 ) rotx ( 0 )
+		scal ( 1 1 1 ) obj SD09 /* "SD\SD09.suf" atr "#02" */
+	}
+	{	mov ( 0 0 0 ) rotz ( 0 ) roty ( 0 ) rotx ( 0 )
+		scal ( 1 -1 1 ) obj SD09 /* "SD\SD09.suf" atr "#02" */
+	}
+	{	mov ( 0 50 100 ) rotz ( 0 ) roty ( 0 ) rotx ( 0 )
+		scal ( 1 1 1 ) obj SD10 /* "SD\SD10.suf" atr "#01" */
+	}
+	{	mov ( 0 -50 100 ) rotz ( 0 ) roty ( 0 ) rotx ( 0 )
+		scal ( 1 -1 1 ) obj SD10 /* "SD\SD10.suf" atr "#01" */
+	}
+	{	mov ( 0 0 50 ) rotz ( 0 ) roty ( 0 ) rotx ( 0 )
+		scal ( 1 1 1 ) obj W113 /* "W1\W113.suf" atr "#01" */
+	}
+	{	mov ( -500 0 100 ) rotz ( 0 ) roty ( 20 ) rotx ( 0 )
+		scal ( 1 1 1 ) obj G111 /* "G1\G111.suf" atr "#02" */
+	}
+	{	mov ( -250 -550 50 ) rotz ( -40 ) roty ( 0 ) rotx ( 0 )
+		scal ( 0.5 0.3 0.5 ) obj G106 /* "G1\G106.suf" atr "#02" */
+	}
+	{	mov ( -50 -550 50 ) rotz ( -40 ) roty ( 0 ) rotx ( 0 )
+		scal ( 0.5 0.3 0.5 ) obj G106 /* "G1\G106.suf" atr "#02" */
+	}
+	{	mov ( 300 -450 50 ) rotz ( 0 ) roty ( 0 ) rotx ( 0 )
+		scal ( 0.3 0.2 0.3 ) obj G109 /* "G1\G109.suf" atr "#02" */
+	}
+	{	mov ( 450 -350 50 ) rotz ( 0 ) roty ( 0 ) rotx ( 0 )
+		scal ( 0.3 0.2 0.3 ) obj G109 /* "G1\G109.suf" atr "#02" */
+	}
+	{	mov ( 200 -550 50 ) rotz ( 0 ) roty ( 0 ) rotx ( 0 )
+		scal ( 0.3 0.2 0.3 ) obj G109 /* "G1\G109.suf" atr "#02" */
+	}
+	{	mov ( -250 550 50 ) rotz ( 40 ) roty ( 0 ) rotx ( 0 )
+		scal ( 0.5 -0.3 0.5 ) obj G106 /* "G1\G106.suf" atr "#02" */
+	}
+	{	mov ( -50 550 50 ) rotz ( 40 ) roty ( 0 ) rotx ( 0 )
+		scal ( 0.5 -0.3 0.5 ) obj G106 /* "G1\G106.suf" atr "#02" */
+	}
+	{	mov ( 300 450 50 ) rotz ( 0 ) roty ( 0 ) rotx ( 0 )
+		scal ( 0.3 -0.2 0.3 ) obj G109 /* "G1\G109.suf" atr "#02" */
+	}
+	{	mov ( 450 350 50 ) rotz ( 0 ) roty ( 0 ) rotx ( 0 )
+		scal ( 0.3 -0.2 0.3 ) obj G109 /* "G1\G109.suf" atr "#02" */
+	}
+	{	mov ( 200 550 50 ) rotz ( 0 ) roty ( 0 ) rotx ( 0 )
+		scal ( 0.3 -0.2 0.3 ) obj G109 /* "G1\G109.suf" atr "#02" */
+	}
+	{	mov ( 200 0 150 ) rotz ( 0 ) roty ( 0 ) rotx ( 0 )
+		scal ( 1 1 1 ) obj G101 /* "G1\G101.suf" atr "#02" */
+	}
+	{	mov ( 300 0 150 ) rotz ( 0 ) roty ( 0 ) rotx ( 0 )
+		scal ( 0.7 0.5 0.6 ) obj G108 /* "G1\G108.suf" atr "#02" */
+	}
+	{	mov ( -50 -250 150 ) rotz ( 0 ) roty ( 0 ) rotx ( -20 )
+		scal ( 1 0.4 0.4 ) obj SD14 /* "SD\SD14.suf" atr "#02" */
+	}
+	{	mov ( -50 250 150 ) rotz ( 0 ) roty ( 0 ) rotx ( 20 )
+		scal ( 1 -0.4 0.4 ) obj SD14 /* "SD\SD14.suf" atr "#02" */
+	}
+	{	mov ( 50 0 0 ) rotz ( 0 ) roty ( 0 ) rotx ( 90 )
+		scal ( 1 0.4 1 ) obj SD04 /* "SD\SD04.suf" atr "#01" */
+	}
+	{	mov ( -50 200 -100 ) rotz ( 0 ) roty ( 0 ) rotx ( 0 )
+		scal ( 1 1 1 ) obj EG05 /* "EG\EG05.suf" atr "#02" */
+	}
+	{	mov ( -50 -200 -100 ) rotz ( 0 ) roty ( 0 ) rotx ( 0 )
+		scal ( 1 -1 1 ) obj EG05 /* "EG\EG05.suf" atr "#02" */
+	}
+}
