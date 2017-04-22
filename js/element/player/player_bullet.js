@@ -3,28 +3,34 @@ phina.define('sh.playerBullet', {
   //sh.entityクラスを継承
   superClass: 'sh.entity',
   //初期化
-  init: function(rotate,type) {
+  init: function() {
     this.superInit(4);
     //ポジション
     this.setPosition(player.x,player.y);
     //回転
-    this.rotation = rotate;
+    this.rotation = player.rotation;
     //画像
-    this.image = Sprite('player_image_bullet',64,64).addChildTo(this);
-    this.spriteSheet = FrameAnimation ('player_bullet_ss');
-    this.spriteSheet.attachTo(this.image);
-    if (player.hyper){
-      this.setScale(1 + player.hyperLevel * 0.15);
-      this.spriteSheet.gotoAndPlay('pb_hyper');
-    } else {
-      this.spriteSheet.gotoAndPlay(['pb_typeA','pb_typeB','pb_typeC','pb_typeD'][type]);
+    this.image = Sprite('player_image_accessory',64,64).addChildTo(this);
+    switch (player.type) {
+      case 0 :
+        this.image.frameIndex = 0;
+        break;
+      case 1 :
+        this.image.frameIndex = 1;
+        break;
+      case 2 :
+        this.image.frameIndex = 2;
+        break;
+      case 3 :
+        this.image.frameIndex = 3;
+        break;
     }
     //移動
-    var v = Vector2().fromDegree(player.rotation - 90, 50);
+    var v = Vector2().fromDegree(player.rotation - 90, 60);
     this.physical.velocity = v;
-    this.visible = false;
+    this.visible = true;
     this.tweener
-    .wait(8)
+    .wait(0.1)
     .set({visible:true});
 
   },

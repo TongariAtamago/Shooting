@@ -8,6 +8,6 @@ phina.define('sh.GameStage1', {
   init: function() {
     this.superInit(SCENE_DEFAULT);
 
-    player = sh.player(3,1).addChildTo(this);
+    this.player = sh.player(3,1).addChildTo(this);
   },
 });
