@@ -57,6 +57,8 @@ phina.define('sh.player', {
     this.spriteSheet.attachTo(this.image);
     this.spriteSheet.nowAnim = 'top';
     this.spriteSheet.gotoAndPlay(this.anim);
+    //ビット
+    
     //ヒットする点
     this.hitCircle = Sprite('tex0',20,20).addChildTo(this);
     this.hitCircle.frameIndex = 5;
@@ -94,15 +96,8 @@ phina.define('sh.player', {
       vSpeed = this.speed;
       vRotationSpeed = this.rotationSpeed;
       //弾の発射
-      var bulletSty = null;
-      var bulletAng = null;
-      if (this.hyper) {
-        bulletSty = 4;
-      } else {
-        bulletSty = this.type;
-      }
-      if (app.frame % 8 === 0) {
-        var bullet = sh.playerBullet(this.rotation,bulletSty).addChildTo(this.parent);
+      if (app.frame % 6 === 0) {
+        var bullet = sh.playerBullet().addChildTo(this.parent);
       }
     }
     //回転
