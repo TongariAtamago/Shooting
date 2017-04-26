@@ -19,7 +19,7 @@ phina.define('sh.player', {
   //無敵
   muteki: false,
   //ハイパー
-  hyper: false,
+  hyper: true,
   //ハイパーレベル 1~10
   hyperLevel: 0,
   //弾やレーザーのrotation
@@ -31,14 +31,10 @@ phina.define('sh.player', {
     this.superInit(4);//当たり判定radius
     this.type = type;//type
     this.style = style;//style
-    this.bulletAngle   = null;//弾角度　updateで変えてる
     //                        赤    緑    青   ピンク
     this.speed         =  [  6.0,  5.0,  4.5,  5.5][type];//スピード
     this.rotationSpeed =  [  2.5,  2.0,  3.0,  2.0][type];//回転スピード
     this.anim          =['p0','p1','p2','p3'][type];//アニメーション
-    //                ショット/レーザー/エキスパート/ビギナー
-    this.bulletStyle   =  [　 10,   20,    20,   10][style];//弾の間の角
-
     //ポジション
     this.setPosition(SC_W/2,SC_H/2);
     //ライト
@@ -52,13 +48,11 @@ phina.define('sh.player', {
       strokeWidth: 0,
     }).addChildTo(this);
     //画像
-    this.image = Sprite('player_image',64,64).addChildTo(this);
+    this.image = Sprite('player_image',80,80).addChildTo(this);
     this.spriteSheet = FrameAnimation ('player_ss');
     this.spriteSheet.attachTo(this.image);
     this.spriteSheet.nowAnim = 'top';
     this.spriteSheet.gotoAndPlay(this.anim);
-    //ビット
-    
     //ヒットする点
     this.hitCircle = Sprite('tex0',20,20).addChildTo(this);
     this.hitCircle.frameIndex = 5;
@@ -96,9 +90,9 @@ phina.define('sh.player', {
       vSpeed = this.speed;
       vRotationSpeed = this.rotationSpeed;
       //弾の発射
-      if (app.frame % 6 === 0) {
+      /*if (app.frame % 6 === 0) {
         var bullet = sh.playerBullet().addChildTo(this.parent);
-      }
+      }*/
     }
     //回転
     if (key.getKey('x')) { this.rotation += vRotationSpeed; }//右回転
