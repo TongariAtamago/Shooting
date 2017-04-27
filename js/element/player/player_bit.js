@@ -13,23 +13,42 @@ phina.define('sh.playerBit', {
       this.bits[i].y = [10,10,16,16,22,22][i];
     },this);
     this.hyperBits = [];
-    (3).times(function(i){
+    (10).times(function(i){
       this.hyperBits[i] = Sprite('player_image_accessory',32,32).addChildTo(this);
       this.hyperBits[i].frameIndex = this.bitFrame;
       this.hyperBits[i].visible = false;
     },this);
   },
-  update: function(){
+  update: function(app){
+    if (app.frame % 6 === 0) {
+      (6).times(function(i){
+        var vx = Vector2().fromDegree(this.parent.rotation,this.bits[i].x);
+        var vy = Vector2().fromDegree(this.parent.rotation,this.bits[i].y);
+        var bullet = sh.playerBullet(
+          this.parent.x + vx.x,
+          this.parent.y + vy.y,
+          this.parent.rotation - this.bits[i].rotation,
+          this.parent.type
+        ).addChildTo(this.parent.parent);
+      },this);
+    }
     if(this.parent.hyper){
-      if(this.visible === false){
-        (3).times(function(i){
-          this.hyperBits[i].visible = true;
-        },this);
-      }else{
-        (3).times(function(i){
-          this.hyperBits[i].visible = true;
-        },this);
-      }
+      (this.parent.hyperLevel).times(function(i){
+        this.hyperBits[i].visible = true;
+        var r = 360 / this.parent.hyperLevel;
+        r += i * r;
+        var s;
+        if(i % 2 === 0){
+          s = app.frame * 6.1;
+        }else{
+          s = app.frame * -6.4;
+        }
+        var v = Vector2().fromDegree(r - 150 + s, 60);
+        this.hyperBits[i].setPosition(v.x,v.y);
+        this.hyperBits[i].rotation = r + s -60;
+      },this);
+    }else{
+      this.hyperBits[i].visible = false;
     }
   }
 });

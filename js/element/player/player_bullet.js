@@ -3,15 +3,15 @@ phina.define('sh.playerBullet', {
   //sh.entityクラスを継承
   superClass: 'sh.entity',
   //初期化
-  init: function() {
+  init: function(x,y,rotate,type) {
     this.superInit(4);
     //ポジション
-    this.setPosition(player.x,player.y);
+    this.setPosition(x,y);
     //回転
-    this.rotation = player.rotation;
+    this.rotation = rotate;
     //画像
     this.image = Sprite('player_image_accessory',64,64).addChildTo(this);
-    switch (player.type) {
+    switch (type) {
       case 0 :
         this.image.frameIndex = 0;
         break;
@@ -26,12 +26,8 @@ phina.define('sh.playerBullet', {
         break;
     }
     //移動
-    var v = Vector2().fromDegree(player.rotation - 90, 60);
+    var v = Vector2().fromDegree(rotate - 90, 60);
     this.physical.velocity = v;
-    this.visible = true;
-    this.tweener
-    .wait(0.1)
-    .set({visible:true});
 
   },
   //アップデート処理
