@@ -21,7 +21,7 @@ phina.define('sh.player', {
   //ハイパー
   hyper: true,
   //ハイパーレベル 1~10
-  hyperLevel: 0,
+  hyperLevel: 6,
   //弾やレーザーのrotation
   vRotation: 0,
   //当たり判定のある場所
@@ -90,9 +90,9 @@ phina.define('sh.player', {
       vSpeed = this.speed;
       vRotationSpeed = this.rotationSpeed;
       //弾の発射
-      /*if (app.frame % 6 === 0) {
-        var bullet = sh.playerBullet().addChildTo(this.parent);
-      }*/
+      if (app.frame % 6 === 0) {
+        var bullet = sh.playerBullet(this.x,this.y,this.rotation,this.type).addChildTo(this.parent);
+      }
     }
     //回転
     if (key.getKey('x')) { this.rotation += vRotationSpeed; }//右回転
