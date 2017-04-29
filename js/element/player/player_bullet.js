@@ -28,12 +28,11 @@ phina.define('sh.playerBullet', {
     //移動
     var v = Vector2().fromDegree(rotate - 90, 60);
     this.physical.velocity = v;
-
   },
   //アップデート処理
   update: function() {
     //画面外で消す
-    if (this.x <= -10 || this.x >= SC_W + 10 ||
-    this.y <= -10 || this.y >= SC_H + 10) {this.remove();}
+    if (this.x <= -80 || this.x >= SC_W + 80 ||
+    this.y <= -80 || this.y >= SC_H + 80) {this.remove();}
   }
 });

@@ -38,15 +38,16 @@ phina.define('sh.player', {
     //ポジション
     this.setPosition(SC_W/2,SC_H/2);
     //ライト
-    var lightGrad = Canvas.createRadialGradient(0, 0, 80, 0, 0, 25);
+    var lightGrad = Canvas.createRadialGradient(0, 0, 120, 0, 0, 25);
     lightGrad.addColorStop(0, 'rgba(255,255,255,0.0)');
     lightGrad.addColorStop(0.8, 'rgba(255,255,255,0.09)');
     lightGrad.addColorStop(1, 'rgba(255,255,255,0.09)');
     this.light = CircleShape({
-      radius: 80,
+      radius: 120,
       fill: lightGrad,
       strokeWidth: 0,
     }).addChildTo(this);
+    this.light.blendMode = 'lighter';
     //画像
     this.image = Sprite('player_image',80,80).addChildTo(this);
     this.spriteSheet = FrameAnimation ('player_ss');
@@ -89,10 +90,6 @@ phina.define('sh.player', {
     } else {
       vSpeed = this.speed;
       vRotationSpeed = this.rotationSpeed;
-      //弾の発射
-      if (app.frame % 6 === 0) {
-        var bullet = sh.playerBullet(this.x,this.y,this.rotation,this.type).addChildTo(this.parent);
-      }
     }
     //回転
     if (key.getKey('x')) { this.rotation += vRotationSpeed; }//右回転
