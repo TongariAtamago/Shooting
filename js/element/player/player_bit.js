@@ -4,13 +4,25 @@ phina.define('sh.playerBit', {
   //初期化
   init: function(type) {
     this.superInit();
-    this.bits = [];
+    this.type = type;
     this.bitFrame = 16 + type;
+    this.bits = [];
     (6).times(function(i){
       this.bits[i] = Sprite('player_image_accessory',32,32).addChildTo(this);
       this.bits[i].frameIndex = this.bitFrame;
-      this.bits[i].x = [-54,54,-88,88,-122,122][i];
-      this.bits[i].y = [10,10,16,16,22,22][i];
+      if(i <= 2){
+        this.bits[i].x = Vector2().fromDegree(20,[54,88,122][i]).x;
+        this.bits[i].y = Vector2().fromDegree(20,[54,88,122][i]).y;
+        this.bits[i].bx = Vector2().fromDegree(10,[54,88,122][i]).x;
+        this.bits[i].by = Vector2().fromDegree(10,[54,88,122][i]).y;
+        this.bits[i].rotation = [-4,10,20][i];
+      }else{
+        this.bits[i].x = Vector2().fromDegree(160,[54,88,122][i - 3]).x;
+        this.bits[i].y = Vector2().fromDegree(160,[54,88,122][i - 3]).y;
+        this.bits[i].bx = Vector2().fromDegree(170,[54,88,122][i - 3]).x;
+        this.bits[i].by = Vector2().fromDegree(170,[54,88,122][i - 3]).y;
+        this.bits[i].rotation = [4,-10,-20][i - 3];
+      }
     },this);
     this.hyperBits = [];
     (10).times(function(i){
@@ -20,20 +32,33 @@ phina.define('sh.playerBit', {
     },this);
   },
   update: function(app){
-    if (app.frame % 6 === 0) {
-      (6).times(function(i){
-        var vx = Vector2().fromDegree(this.parent.rotation,this.bits[i].x);
-        var vy = Vector2().fromDegree(this.parent.rotation,this.bits[i].y);
+    this.x = this.player.x;
+    this.y = this.player.y;
+    (6).times(function(i){
+      if(i <= 2){
+        this.bits[i].x = Vector2().fromDegree(this.player.rotation + 20,[54,88,122][i]).x;
+        this.bits[i].y = Vector2().fromDegree(this.player.rotation + 20,[54,88,122][i]).y;
+        this.bits[i].bx = Vector2().fromDegree(this.player.rotation + 10,[54,88,122][i]).x;
+        this.bits[i].by = Vector2().fromDegree(this.player.rotation + 10,[54,88,122][i]).y;
+        this.bits[i].rotation = this.player.rotation + [-4,10,20][i];
+      }else{
+        this.bits[i].x = Vector2().fromDegree(this.player.rotation + 160,[54,88,122][i - 3]).x;
+        this.bits[i].y = Vector2().fromDegree(this.player.rotation + 160,[54,88,122][i - 3]).y;
+        this.bits[i].bx = Vector2().fromDegree(this.player.rotation + 170,[54,88,122][i - 3]).x;
+        this.bits[i].by = Vector2().fromDegree(this.player.rotation + 170,[54,88,122][i - 3]).y;
+        this.bits[i].rotation = this.player.rotation + [4,-10,-20][i - 3];
+      }
+      if(app.frame % 6 === 0){
         var bullet = sh.playerBullet(
-          this.parent.x + vx.x,
-          this.parent.y + vy.y,
-          this.parent.rotation - this.bits[i].rotation,
-          this.parent.type
-        ).addChildTo(this.parent.parent);
-      },this);
-    }
-    if(this.parent.hyper){
-      (this.parent.hyperLevel).times(function(i){
+          this.x + this.bits[i].bx,
+          this.y + this.bits[i].by,
+          this.bits[i].rotation,
+          this.type
+        ).addChildTo(this.parent);
+      }
+    },this);
+    if(this.player.hyper){
+      (this.player.hyperLevel).times(function(i){
         this.hyperBits[i].visible = true;
         var r = 360 / this.parent.hyperLevel;
         r += i * r;
